@@ -5,7 +5,7 @@
   <artifactId>WebApp</artifactId>
   <packaging>war</packaging>
   <version>1.1.0</version>
-  <name>project-oss</name>
+  <name>maven.webapp</name>
   <url>http://maven.apache.org</url>
   <properties>
  <maven.compiler.source>1.8</maven.compiler.source>
