@@ -30,13 +30,13 @@ pipeline {
 	  [
 	    artifactId: 'WebApp', 
 		classifier: '', 
-		file: 'target/project-oss-1.1.0.war', 
+		file: 'target/maven.webapp-1.1.0.war', 
 		type: 'war'
 		]
 		], 
 		credentialsId: 'nexus3', 
 		groupId: 'Demoapp', 
-		nexusUrl: '13.76.138.222', 
+		nexusUrl: 'http://13.76.138.222:8081', 
 		nexusVersion: 'nexus3', 
 		protocol: 'http', 
 		repository: 'project-oss', 
