@@ -26,7 +26,7 @@ pipeline {
 	  }
 	  stage('upload war to nexus'){
           steps{	  
-	  nexusArtifactUploader artifacts: [
+	         nexusArtifactUploader artifacts: [
 	  [
 	    artifactId: 'WebApp', 
 		classifier: '', 
