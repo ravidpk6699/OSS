@@ -21,7 +21,7 @@ pipeline {
 		], 
 		credentialsId: 'nexus3', 
 		groupId: 'Demoapp', 
-		nexusUrl: '13.76.138.222:8081', 
+		nexusUrl: '20.212.18.14:8081', 
 		nexusVersion: 'nexus3', 
 		protocol: 'http', 
 		repository: 'project-oss', 
