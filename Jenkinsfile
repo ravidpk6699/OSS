@@ -9,7 +9,7 @@ pipeline {
 		      sh 'mvn clean package'
       }
       }
-	    stage('sonarqube analysis') {
+	  stage('sonarqube analysis') {
 		     steps{
 			      withSonarQubeEnv('sonarqube') {
 				  sh "mvn sonar:sonar"
@@ -18,7 +18,7 @@ pipeline {
 		}
 		stage("Quality Gate") {
 		steps {
-		//timeout(time:1, unit: 'SECONDS') {
+		//timeout(time:1, unit: 'HOURS') {
 		//waitForQualityGate abortPipeline: true
 		//}
 		        echo 'test'
@@ -26,7 +26,10 @@ pipeline {
 	  }
 	  stage('upload war to nexus'){
           steps{
-	  nexusArtifactUploader artifacts: [[artifactId: 'WebApp', classifier: '', file: 'target/WebApp.war', type: 'war']], credentialsId: 'nexus3', groupId: 'Demoapp', nexusUrl: '20.212.18.14:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'projectoss-release', version: '1.0.0'
+		  script{
+		  def mavenpom = readMavenPom file: 'pom.xml'
+	         nexusArtifactUploader artifacts: [[artifactId: 'WebApp', classifier: '', file: "target/WebApp-${mavenpom.version}.war", type: 'war']], credentialsId: 'nexus3', groupId: 'Demoapp', nexusUrl: '20.212.18.14:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'projectoss-release', version: "${mavenPom.version}"
+	  }
 	  }
 	  }
 	  }
