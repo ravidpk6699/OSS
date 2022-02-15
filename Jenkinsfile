@@ -18,7 +18,7 @@ ppipeline {
 		}
 		stage("Quality Gate") {
 		steps {
-		timeout(time:1, unit: 'SECONDS') {
+		timeout(time:3, unit: 'SECONDS') {
 		waitForQualityGate abortPipeline: true
 		}
 		}
