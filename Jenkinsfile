@@ -28,7 +28,7 @@ pipeline {
           steps{
 		  script{
 		  def mavenpom = readMavenPom file: 'pom.xml'
-	         nexusArtifactUploader artifacts: [[artifactId: 'WebApp', classifier: '', file: "target/WebApp-${mavenpom.version}.war", type: 'war']], credentialsId: 'nexus3', groupId: 'Demoapp', nexusUrl: '20.212.18.14:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'projectoss-release', version: "${mavenPom.version}"
+	         nexusArtifactUploader artifacts: [[artifactId: 'WebApp', classifier: '', file: "target/WebApp-${MavenPom.version}.war", type: 'war']], credentialsId: 'nexus3', groupId: 'Demoapp', nexusUrl: '20.212.18.14:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'projectoss-release', version: "${mavenPom.version}"
 	  }
 	  }
 	  }
