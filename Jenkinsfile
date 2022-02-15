@@ -1,4 +1,4 @@
-pipeline {
+ppipeline {
     agent any
   tools {
     maven 'maven3'
@@ -18,10 +18,9 @@ pipeline {
 		}
 		stage("Quality Gate") {
 		steps {
-		//timeout(time:1, unit: 'HOURS') {
-		//waitForQualityGate abortPipeline: true
-		//}
-		        echo 'test'
+		timeout(time:1, unit: 'SECONDS') {
+		waitForQualityGate abortPipeline: true
+		}
 		}
 	  }
 	  stage('upload war to nexus'){
