@@ -29,8 +29,8 @@ pipeline {
 	  nexusArtifactUploader artifacts: [[artifactId: 'WebApp', classifier: '', file: 'target/WebApp.war', type: 'war']], credentialsId: 'nexus3', groupId: 'Demoapp', nexusUrl: '20.212.18.14:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'projectoss-release', version: '1.1.1'
 	  }
 	  }
-	  stage('Deploy to prod')
-		steps{
+	     stage('Deploy to prod')
+		    steps{
 			ansiblePlaybook become: true, becomeUser: 'azureuser', credentialsId: 'ansible', installation: 'ansible', inventory: 'ansible/hosts', playbook: 'ansible/deploy.yaml'
 		}
 	}
