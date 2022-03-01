@@ -1,2 +1,2 @@
 [prodserver]
-prodserver1  ansible_ssh_host=20.127.25.171
+prodserver1  ansible_ssh_host=20.212.18.14
