@@ -1,6 +1,6 @@
 ---
 - hosts: prod-server
-  become: root
+  become: azureuser
   become: true
   tasks:
     - name: deploy build to tomcat
