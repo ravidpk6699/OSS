@@ -31,7 +31,7 @@ pipeline {
 	  }
 	     stage('Deploy to tomcat'){
 		    steps{
-			   ansiblePlaybook become: true, becomeUser: 'azureuser', credentialsId: 'ansible', installation: 'ansible', inventory: 'ansible/hosts', playbook: 'ansible/deploy.yaml'
+			   ansiblePlaybook become: true, becomeUser: 'root', credentialsId: 'ansible', installation: 'ansible', inventory: 'ansible/hosts', playbook: 'ansible/deploy.yaml'
 		
 			
 		}
